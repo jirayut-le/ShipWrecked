@@ -16,6 +16,8 @@
         "src/GameLayer.js",
         "src/startGame.js",
         "src/bgAnimation.js",
-        "src/startButton.js"
+        "src/startButton.js",
+        "src/PlaySceneLayer.js",
+        "src/boat.js"
     ]
 }
