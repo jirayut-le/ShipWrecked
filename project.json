@@ -18,6 +18,7 @@
         "src/bgAnimation.js",
         "src/startButton.js",
         "src/PlaySceneLayer.js",
-        "src/boat.js"
+        "src/boat.js",
+        "src/rock.js"
     ]
 }

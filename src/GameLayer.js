@@ -17,16 +17,7 @@ var GameLayer = cc.LayerColor.extend({
 		this.startGame.setPosition( new cc.Point(1000,750));
 
 		this.buttonStart();
-
-//		this.startButton = new startButton();
-//		this.addChild( this.startButton );
-//		this.startButton.setPosition( new cc.Point(1009,402.5));
-
-
-//		document.getElementsByName(elementName)
-
-
-
+		
 		return true;
 	},
 
@@ -35,10 +26,14 @@ var GameLayer = cc.LayerColor.extend({
 				'res/images/startButton.png',
 				'res/images/startButtonClicked.png',
 				function () {
-					console.log("test clicked")
+					this.startGame.runAction( cc.FadeTo.create(1.5,0));
+					this.playButtonItem.runAction( cc.FadeTo.create(1.5,0));
+					setTimeout(function() { 
+						cc.director.runScene( new StartPlayScene() ); 	
+					}, 3000);
 //					cc.audioEngine.stopMusic( 'res/effects/MainMenuTheme.mp3' );
 //					cc.audioEngine.playEffect( 'res/effects/click.mp3' );
-					cc.director.runScene( new StartPlayScene() );
+
 				}, this);
 		this.playButton = new cc.Menu( this.playButtonItem );
 		this.playButton.setPosition( 1009 , 402.5  );

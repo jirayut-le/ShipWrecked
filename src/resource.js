@@ -7,7 +7,8 @@ var res = {
     BgPlay3_png : "res/images/BgPlay3.png",
     Sound_water_mp3 : "res/effects/waterSound.mp3",
     startButton_png : "res/images/startButton.png",
-    boat_1_png : "res/images/boat_1.png"
+    boat_1_png : "res/images/boat_1.png",
+    rock_png : "res/images/rock.png"
     
 };
 
