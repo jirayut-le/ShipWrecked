@@ -1,6 +1,5 @@
 var res = {
 //    HelloWorld_png : "res/HelloWorld.png",
-    BgPlay_png : "res/images/BgPlay.png",
     startGame_png : "res/images/startGame.png",
     BgPlay1_png : "res/images/BgPlay1.png",
     BgPlay2_png : "res/images/BgPlay2.png",

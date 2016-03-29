@@ -2,10 +2,11 @@ var boat = cc.Sprite.extend({
 	ctor : function(){
 		this._super();
 		this.initWithFile("res/images/boat_2.png");
-		this.velocity = 5;
+		this.velocity = 10;
 		this.degree = 0;
 		this.checkMoveRight = false;
 		this.checkMoveLeft = false;
+		this.gameOver = true;
 	},
 
 	update : function(){
