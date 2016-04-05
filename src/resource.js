@@ -1,5 +1,4 @@
 var res = {
-//    HelloWorld_png : "res/HelloWorld.png",
     startGame_png : "res/images/startGame.png",
     BgPlay1_png : "res/images/BgPlay1.png",
     BgPlay2_png : "res/images/BgPlay2.png",
@@ -7,7 +6,12 @@ var res = {
     Sound_water_mp3 : "res/effects/waterSound.mp3",
     startButton_png : "res/images/startButton.png",
     boat_1_png : "res/images/boat_1.png",
-    rock_png : "res/images/rock.png"
+    rock_png : "res/images/rock.png",
+    seaweed_png : "res/images/seaweed.png",
+    treasure_png : "res/images/treasure.png",
+    fishing_net_png : "res/images/net.png",
+    bg_effect_seaweed : "res/images/bgEffectSeaweed.png",
+    bg_effect_fishingNet : "res/images/bgEffectFishingNet.png"
     
 };
 

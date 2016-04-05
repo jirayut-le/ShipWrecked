@@ -17,7 +17,10 @@ var GameLayer = cc.LayerColor.extend({
 		this.startGame.setPosition( new cc.Point(1000,750));
 
 		this.buttonStart();
-		
+
+		this.gameStart = false;
+		this.gameOver = false;
+
 		return true;
 	},
 
@@ -28,9 +31,13 @@ var GameLayer = cc.LayerColor.extend({
 				function () {
 					this.startGame.runAction( cc.FadeTo.create(1.5,0));
 					this.playButtonItem.runAction( cc.FadeTo.create(1.5,0));
-					setTimeout(function() { 
-						cc.director.runScene( new StartPlayScene() ); 	
-					}, 3000);
+					if (this.gameStart == false){
+						setTimeout(function() { 
+							cc.director.runScene( new StartPlayScene() ); 	
+						}, 2000);
+					}
+
+					this.gameStart = true;
 //					cc.audioEngine.stopMusic( 'res/effects/MainMenuTheme.mp3' );
 //					cc.audioEngine.playEffect( 'res/effects/click.mp3' );
 

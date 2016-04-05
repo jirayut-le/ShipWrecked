@@ -19,6 +19,11 @@
         "src/startButton.js",
         "src/PlaySceneLayer.js",
         "src/boat.js",
-        "src/rock.js"
+        "src/rock.js",
+        "src/Seaweed.js",
+        "src/Treasure.js",
+        "src/FishingNet.js",
+        "src/bgEffectSeaweed.js",
+        "src/bgEffectFishingNet.js"
     ]
 }
