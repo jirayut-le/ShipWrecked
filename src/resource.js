@@ -18,11 +18,17 @@ var res = {
     fishing_net_png : "res/images/net.png",
     bg_effect_seaweed : "res/images/bgEffectSeaweed.png",
     bg_effect_fishingNet : "res/images/bgEffectFishingNet.png",
-    statusbar : "res/images/statusBar.png"
+    statusbar : "res/images/statusBar.png",
+    
+    
     
 };
 
 var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
+}
+
+for (var i in arrayNum){
+	g_resources.push(arrayNum[i]);
 }
