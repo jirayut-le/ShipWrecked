@@ -20,12 +20,17 @@ var boat = cc.Sprite.extend({
 
 	},
 	rotateRight : function(){
+		if ( this.degree < 5 )
+			this.degree += 0.5;
+		
 		if ( this.degree < 20)
 			this.degree += 0.1;
 		this.setRotation( this.degree );
 	},
 
 	rotateLeft : function(){
+		if ( this.degree > -5 )
+			this.degree -= 0.5;
 		if ( this.degree > -20 )
 			this.degree -= 0.1;
 		this.setRotation( this.degree );

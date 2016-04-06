@@ -5,8 +5,6 @@ var Seaweed = cc.Sprite.extend({
 		this.velocity = 5;
 		this.numberPosition;
 		this.start = false;
-		
-		
 	},
 	
 	update : function(){
@@ -25,7 +23,7 @@ var Seaweed = cc.Sprite.extend({
 	moveDown : function(){
 		var pos = this.getPosition();
 		this.setPosition( new cc.Point( pos.x , pos.y - this.velocity));
-		if( pos.y < -10 )
+		if( pos.y == -10 )
 			this.setPosition( this.randomNumberOfPositionX() * 250 , 5000 );
 	},
 	closeTo: function( obj ) {
@@ -36,8 +34,8 @@ var Seaweed = cc.Sprite.extend({
 	},
 	effect : function ( obj ){
 		
+		this.setPosition( -100 , this.getPosition().y);
 		obj.velocity = 5;
-		
 		setTimeout(function() { 
 			obj.velocity = 10;
 		}, 2000);

@@ -33,6 +33,6 @@ var Treasure = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+176) ) <= 70 ) );
 	},
 	effect : function (){
-		
+		this.setPosition( -100 , this.getPosition().y);
 	}
 });

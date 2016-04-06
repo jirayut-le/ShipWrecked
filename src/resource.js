@@ -1,3 +1,7 @@
+var scoreNumer = {
+		
+};
+
 var res = {
     startGame_png : "res/images/startGame.png",
     BgPlay1_png : "res/images/BgPlay1.png",
@@ -11,7 +15,8 @@ var res = {
     treasure_png : "res/images/treasure.png",
     fishing_net_png : "res/images/net.png",
     bg_effect_seaweed : "res/images/bgEffectSeaweed.png",
-    bg_effect_fishingNet : "res/images/bgEffectFishingNet.png"
+    bg_effect_fishingNet : "res/images/bgEffectFishingNet.png",
+    statusbar : "res/images/statusBar.png"
     
 };
 
