@@ -25,6 +25,7 @@
         "src/FishingNet.js",
         "src/bgEffectSeaweed.js",
         "src/bgEffectFishingNet.js",
-        "src/StatusBar.js"
+        "src/StatusBar.js",
+        "src/Score.js"
     ]
 }

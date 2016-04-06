@@ -1,6 +1,8 @@
-var scoreNumer = {
-		
-};
+var scoreNumber = []
+for ( var i = 0 ; i < 10 ; i++){
+	scoreNumber.push("res/images/score/score"+i+".png");
+}
+
 
 var res = {
     startGame_png : "res/images/startGame.png",

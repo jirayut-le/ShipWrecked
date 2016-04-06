@@ -9,13 +9,18 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.bgAnimation.setPosition(new cc.Point(1000, 750));
 
 		this.boat_1 = new boat();
-		this.addChild(this.boat_1, 2);
+		this.addChild(this.boat_1, 1);
 		this.boat_1.scheduleUpdate();
 		this.boat_1.setPosition(new cc.Point(1000, 5));
 
 		this.StatusBar = new StatusBar();
-		this.addChild( this.StatusBar , 1);
+		this.addChild( this.StatusBar , 2);
 		this.StatusBar.setPosition( new cc.Point (1000 , 1408 ));
+		
+		this.Score = new Score();
+		this.addChild( this.Score , 3);
+		this.Score.setPosition( new cc.Point ( 1130 , 1420));
+		this.Score.scheduleUpdate();
 
 		this.hitSeaweedFirstTime = false;
 		this.hitFishingNetFirstTime = false;
@@ -40,7 +45,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 					this.effectWhenHitSeaweed( this.obstacles[i] );
 
 				else if ( this.obstacles[i] instanceof Treasure)
-					this.obstacles[i].runAction( cc.FadeTo.create(0,0));
+					this.effectWhenHitTreasure( this.obstacles[i] );
 
 				else if ( this.obstacles[i] instanceof FishingNet ){
 					this.effectWhenHitFishingNet( this.obstacles[i] );
@@ -74,6 +79,11 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.bgEffectFishingNet.fadeOut();
 
 
+	},
+	
+	effectWhenHitTreasure : function ( obj ){
+		obj.effect();
+		this.Score.score += 1;
 	},
 
 	createBgEffectFishingNet : function(){
