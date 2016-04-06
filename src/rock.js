@@ -32,7 +32,7 @@ var rock = cc.Sprite.extend({
 		return ( ( Math.abs( myPos.x - oPos.x ) <= 100 ) &&
 				( Math.abs( myPos.y - (oPos.y+176) ) <= 70 ) );
 	},
-	effect : function( obj ){
-		
+	effect : function(){
+		this.setPosition( -100 , this.getPosition().y );
 	}
 });

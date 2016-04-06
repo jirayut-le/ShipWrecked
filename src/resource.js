@@ -19,6 +19,7 @@ var res = {
     bg_effect_seaweed : "res/images/bgEffectSeaweed.png",
     bg_effect_fishingNet : "res/images/bgEffectFishingNet.png",
     statusbar : "res/images/statusBar.png",
+    life : "res/images/life.png"
     
     
     
@@ -29,6 +30,6 @@ for (var i in res) {
     g_resources.push(res[i]);
 }
 
-for (var i in arrayNum){
-	g_resources.push(arrayNum[i]);
+for (var i in scoreNumber){
+	g_resources.push(scoreNumber[i]);
 }
