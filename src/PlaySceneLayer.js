@@ -3,58 +3,42 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	init : function() {
 		this._super(new cc.Color(22, 206, 215, 255));
 		this.setPosition(new cc.Point(0, 0));
-
-		this.bgAnimation = new bgAnimation();
-		this.addChild(this.bgAnimation);
-		this.bgAnimation.setPosition(new cc.Point(1000, 750));
-
+		this.obstacles = [];
+		
+		this.createBgAnimation();
+		this.createPressToStart();
 		this.createBoat();
-
-		this.StatusBar = new StatusBar();
-		this.addChild( this.StatusBar , 2);
-		this.StatusBar.setPosition( new cc.Point (1000 , 1408 ));
-
-		this.Score = new Score();
-		this.addChild( this.Score , 3 );
-		this.Score.setPosition( new cc.Point ( 1130 , 1420));
-		this.Score.scheduleUpdate();
-
-		this.Life = new Life();
-		this.addChild( this.Life , 3 );
-		this.Life.setPosition( new cc.Point ( 1767.5 , 1423 ));
+		this.createStatusBar();
+		this.createObstacles();
 
 		this.hitSeaweedFirstTime = false;
 		this.hitFishingNetFirstTime = false;
 		this.gameOver = false ;
 
-		this.obstacles = [];
-
-		this.createObstacles();
-		 
 		this.addKeyboardHandlers();
-
 		this.scheduleUpdate();
 	},
 
 	update : function (){
-		if ( this.Life.life == 0){
+		if ( this.Life.lifeRemain == 0){
 			this.gameOver = true;
 			this.pauseGame();
+			this.showGameOver();
 		}
 		for (var i = 0 ; i < this.obstacles.length && this.gameOver == false ; i++){
 			if ( this.obstacles[i].closeTo( this.boat )){
-				if (this.obstacles[i] instanceof rock ){
+
+				if (this.obstacles[i] instanceof rock )
 					this.effectWhenHitRock( this.obstacles[i] );
 
-				} else if ( this.obstacles[i] instanceof Seaweed )
+				else if ( this.obstacles[i] instanceof Seaweed )
 					this.effectWhenHitSeaweed( this.obstacles[i] );
 
 				else if ( this.obstacles[i] instanceof Treasure)
 					this.effectWhenHitTreasure( this.obstacles[i] );
 
-				else if ( this.obstacles[i] instanceof FishingNet ){
+				else if ( this.obstacles[i] instanceof FishingNet )
 					this.effectWhenHitFishingNet( this.obstacles[i] );
-				}
 
 			}
 		}
@@ -83,7 +67,6 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		obj.effect( this.boat );
 		this.bgEffectFishingNet.fadeOut();
 
-
 	},
 
 	effectWhenHitTreasure : function ( obj ){
@@ -109,11 +92,38 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.bgEffectSeaweed.setPosition( new cc.Point ( width/2 , height/2 ));
 	},
 
+	createBgAnimation : function(){
+		this.bgAnimation = new bgAnimation();
+		this.addChild(this.bgAnimation);
+		this.bgAnimation.setPosition(new cc.Point(1000, 750));
+	},
+	
+	createPressToStart : function (){
+		this.PressToStart = new PressToStart();
+		this.addChild( this.PressToStart , 4 );
+		this.PressToStart.setPosition( new cc.Point( 993 , 782 ));
+	},
+
 	createBoat : function(){
 		this.boat = new boat();
 		this.addChild(this.boat, 1);
 		this.boat.scheduleUpdate();
 		this.boat.setPosition(new cc.Point(1000, 5));
+	},
+
+	createStatusBar : function(){
+		this.StatusBar = new StatusBar();
+		this.addChild( this.StatusBar , 2);
+		this.StatusBar.setPosition( new cc.Point (1000 , 1408 ));
+
+		this.Score = new Score();
+		this.addChild( this.Score , 3 );
+		this.Score.setPosition( new cc.Point ( 1130 , 1420));
+		this.Score.scheduleUpdate();
+
+		this.Life = new Life();
+		this.addChild( this.Life , 3 );
+		this.Life.setPosition( new cc.Point ( 1767.5 , 1423 ));
 	},
 
 	createObstacles : function() {
@@ -180,6 +190,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 	onKeyDown : function(keyCode, event) {
 		if (keyCode == cc.KEY.space && this.gameOver == false ) {
+			this.PressToStart.start();
 			for (var i = 0; i < this.obstacles.length; i++) {
 				this.obstacles[i].start = true;
 			}
@@ -208,6 +219,12 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		for (var i = 0 ; i < this.obstacles.length ; i++){
 			this.obstacles[i].start = false;
 		}
+	},
+	
+	showGameOver : function (){
+		setTimeout(function() { 
+			cc.director.runScene( new StartGameOverScene() ); 	
+		}, 1000);
 	}
 
 });

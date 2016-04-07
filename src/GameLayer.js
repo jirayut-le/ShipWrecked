@@ -4,7 +4,6 @@ var GameLayer = cc.LayerColor.extend({
 		this._super( new cc.Color(22, 206, 215, 255 ));
 		this.setPosition( new cc.Point( 0, 0 ) );
 
-
 		this.bgAnimation = new bgAnimation();
 		this.addChild (this.bgAnimation );
 		this.bgAnimation.ctor();
@@ -19,7 +18,6 @@ var GameLayer = cc.LayerColor.extend({
 		this.buttonStart();
 
 		this.gameStart = false;
-		this.gameOver = false;
 
 		return true;
 	},

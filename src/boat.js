@@ -54,6 +54,6 @@ var boat = cc.Sprite.extend({
 	},
 
 	upSpeed : function(){
-
+		this.velocity += 5;
 	}
 });

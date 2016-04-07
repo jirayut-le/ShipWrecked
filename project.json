@@ -27,6 +27,9 @@
         "src/bgEffectFishingNet.js",
         "src/StatusBar.js",
         "src/Score.js",
-        "src/Life.js"
+        "src/Life.js",
+        "src/PressToStart.js",
+        "src/GameOverScene.js",
+        "src/BgGameOver.js"
     ]
 }

@@ -19,9 +19,14 @@ var res = {
     bg_effect_seaweed : "res/images/bgEffectSeaweed.png",
     bg_effect_fishingNet : "res/images/bgEffectFishingNet.png",
     statusbar : "res/images/statusBar.png",
-    life : "res/images/life.png"
-    
-    
+    life : "res/images/life.png",
+    pressToStart_1 : "res/images/pressToStart_1.png",
+    pressToStart_2 : "res/images/pressToStart_2.png",
+    bg_GameOver : "res/images/gameOverScene.png",
+    button_restart : "res/images/gameOverRestart.png",
+    button_restart_click : "res/images/gameOverRestartClick.png",
+    button_home : "res/images/gameOverHome.png",
+    button_home_click : "res/images/gameOverHomeClick.png"
     
 };
 

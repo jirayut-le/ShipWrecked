@@ -2,38 +2,34 @@ var Score = cc.Node.extend({
 	ctor : function(){
 		this._super();
 		this.score = 0 ;
-		
-		this.firstDigit = cc.Sprite.create();
-		this.firstDigit.setPosition( cc.p( -90 , 5 ) );
-		this.addChild( this.firstDigit );
-		
-		this.secondDigit = cc.Sprite.create();
-		this.secondDigit.setPosition( cc.p( -30 , 5 ) );
-		this.addChild( this.secondDigit );
-		
-		this.thirdDigit = cc.Sprite.create();
-		this.thirdDigit.setPosition( cc.p( 30, 5 ) );
-		this.addChild( this.thirdDigit );
-		
-		this.fourthDigit = cc.Sprite.create();
-		this.fourthDigit.setPosition( cc.p( 90, 5 ) );
-		this.addChild( this.fourthDigit );
-		
-		this.firstDigit.initWithFile( scoreNumber[0] );
-		this.secondDigit.initWithFile( scoreNumber[0] );
-		this.thirdDigit.initWithFile( scoreNumber[0] );
-		this.fourthDigit.initWithFile( scoreNumber[0] );
-		
+		this.position = -90;
+		this.digitArray = [];
+		for (var i = 0 ; i < 4 ; i++)
+			this.createDigit();
+
 	},
 	update : function(){
-		this.firstDigit.initWithFile( scoreNumber[ parseInt( this.score/1000 ) ]);
-		this.secondDigit.initWithFile( scoreNumber[ parseInt( this.score/100 ) ]);
-		this.thirdDigit.initWithFile( scoreNumber[ parseInt( this.score/10 ) ]);
-		this.fourthDigit.initWithFile( scoreNumber[ this.score%10 ]);
+		
+		for (var i = 0 ; i < this.digitArray.length ; i++){
+			if ( i < 3)
+				this.digitArray[i].initWithFile( scoreNumber[ parseInt( this.score/(Math.pow(10,4-1-i)) ) ]);
+			else 
+				this.digitArray[i].initWithFile( scoreNumber[ this.score%10 ] ); 
+		}
+
 	},
-	
+
+	createDigit : function(){
+		this.digit = cc.Sprite.create();
+		this.digit.setPosition( cc.p ( this.position , 5));
+		this.digit.initWithFile( scoreNumber[0] );
+		this.addChild( this.digit );
+		this.digitArray.push( this.digit );
+		this.position += 60;
+	},
+
 	getScore : function(){
 		this.score += 1;
 	}
-	
+
 });
