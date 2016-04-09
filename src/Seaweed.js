@@ -33,11 +33,11 @@ var Seaweed = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+176) ) <= 90 ) );
 	},
 	effect : function ( obj ){
-		
+		var tempVelocity = this.velocity;
 		this.setPosition( -100 , this.getPosition().y);
 		obj.velocity = 5;
 		setTimeout(function() { 
-			obj.velocity = 10;
+			obj.velocity = tempVelocity;
 		}, 2000);
 	},
 	upSpeed : function(){

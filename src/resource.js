@@ -1,7 +1,11 @@
-var scoreNumber = []
+var scoreNumber = [];
 for ( var i = 0 ; i < 10 ; i++){
 	scoreNumber.push("res/images/score/score"+i+".png");
 }
+
+var scoreGameOverNumber = [];
+for ( var i = 0 ; i < 10 ; i++)
+	scoreGameOverNumber.push("res/images/scoreGameOver/scoreGameOver" + i + ".png");
 
 
 var res = {
@@ -30,7 +34,10 @@ var res = {
     
     sound_water_mp3 : "res/effects/waterSound.mp3",
     sound_hit_rock_wav : "res/effects/hitRock.wav",
-    sound_click_wav : "res/effects/click.wav"
+    sound_click_wav : "res/effects/click.wav",
+    sound_motor_boat_wav : "res/effects/motorBoat.wav"
+    
+//    font_kilogram_otf : "res/fonts/KiloGram.otf"
     
     
 };
@@ -43,3 +50,6 @@ for (var i in res) {
 for (var i in scoreNumber){
 	g_resources.push(scoreNumber[i]);
 }
+
+for (var i in scoreGameOverNumber)
+	g_resources.push(scoreGameOverNumber[i]);

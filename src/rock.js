@@ -35,6 +35,7 @@ var Rock = cc.Sprite.extend({
 	},
 	
 	effect : function(){
+		cc.audioEngine.playEffect('res/effects/hitRock.wav');
 		this.setPosition( -100 , this.getPosition().y );
 	},
 	upSpeed : function(){

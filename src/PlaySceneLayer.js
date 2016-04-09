@@ -85,7 +85,6 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	},
 
 	effectWhenHitRock : function ( obj ){
-		cc.audioEngine.playEffect('res/effects/hitRock.wav', false);
 		if (!this.hitRockFirstTime ){
 			this.createBgEffectRock();
 			this.hitRockFirstTime = true;

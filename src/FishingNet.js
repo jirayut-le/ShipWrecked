@@ -33,10 +33,11 @@ var FishingNet = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+176) ) <= 70 ) );
 	},
 	effect : function( obj ){
+		var tempVelocity = this.velocity;
 		this.setPosition( -100 , this.getPosition().y);
 		obj.velocity = 0;
 		setTimeout(function() { 
-			obj.velocity = 10;
+			obj.velocity = tempVelocity;
 		}, 2000);
 	},
 	upSpeed : function(){
