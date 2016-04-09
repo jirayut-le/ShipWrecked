@@ -1,28 +1,37 @@
-var boat = cc.Sprite.extend({
+var Boat = cc.Sprite.extend({
 	ctor : function(){
 		this._super();
 		this.initWithFile("res/images/boat_2.png");
 		this.velocity = 10;
 		this.degree = 0;
-		this.checkMoveRight = false;
-		this.checkMoveLeft = false;
-		this.gameOver = true;
+		this.start = false;
+		this.move = 1;
 	},
 
 	update : function(){
-		if ( this.checkMoveRight ){
-			this.moveRight();
-			this.rotateRight();
-		} else if (this.checkMoveLeft ){
-			this.moveLeft();
-			this.rotateLeft();
+
+		if ( this.start ){
+			if ( this.move == 1){
+				this.moveRight();
+				this.rotateRight();
+			} else if ( this.move == 2){
+				this.moveLeft();
+				this.rotateLeft();
+			} 
 		}
 
+	},
+
+	switchMove : function (){
+		if ( this.move == 1)
+			this.move = 2;
+		else if ( this.move == 2)
+			this.move = 1;
 	},
 	rotateRight : function(){
 		if ( this.degree < 5 )
 			this.degree += 0.5;
-		
+
 		if ( this.degree < 20)
 			this.degree += 0.1;
 		this.setRotation( this.degree );
@@ -52,8 +61,7 @@ var boat = cc.Sprite.extend({
 		else 
 			this.setPosition( new cc.Point( width , pos.y));
 	},
-
 	upSpeed : function(){
-		this.velocity += 5;
+		this.velocity += 0.2;
 	}
 });

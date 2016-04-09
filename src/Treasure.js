@@ -23,7 +23,7 @@ var Treasure = cc.Sprite.extend({
 	moveDown : function(){
 		var pos = this.getPosition();
 		this.setPosition( new cc.Point( pos.x , pos.y - this.velocity));
-		if( pos.y < -10 )
+		if( pos.y <= -10 )
 			this.setPosition( this.randomNumberOfPositionX() * 250 , 5000 );
 	},
 	closeTo: function( obj ) {
@@ -34,5 +34,8 @@ var Treasure = cc.Sprite.extend({
 	},
 	effect : function (){
 		this.setPosition( -100 , this.getPosition().y);
+	},
+	upSpeed : function(){
+		this.velocity += 1;
 	}
 });

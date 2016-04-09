@@ -9,7 +9,6 @@ var res = {
     BgPlay1_png : "res/images/BgPlay1.png",
     BgPlay2_png : "res/images/BgPlay2.png",
     BgPlay3_png : "res/images/BgPlay3.png",
-    Sound_water_mp3 : "res/effects/waterSound.mp3",
     startButton_png : "res/images/startButton.png",
     boat_1_png : "res/images/boat_1.png",
     rock_png : "res/images/rock.png",
@@ -18,6 +17,7 @@ var res = {
     fishing_net_png : "res/images/net.png",
     bg_effect_seaweed : "res/images/bgEffectSeaweed.png",
     bg_effect_fishingNet : "res/images/bgEffectFishingNet.png",
+    bg_effect_rock : "res/images/bgEffectRock.png",
     statusbar : "res/images/statusBar.png",
     life : "res/images/life.png",
     pressToStart_1 : "res/images/pressToStart_1.png",
@@ -26,7 +26,12 @@ var res = {
     button_restart : "res/images/gameOverRestart.png",
     button_restart_click : "res/images/gameOverRestartClick.png",
     button_home : "res/images/gameOverHome.png",
-    button_home_click : "res/images/gameOverHomeClick.png"
+    button_home_click : "res/images/gameOverHomeClick.png",
+    
+    sound_water_mp3 : "res/effects/waterSound.mp3",
+    sound_hit_rock_wav : "res/effects/hitRock.wav",
+    sound_click_wav : "res/effects/click.wav"
+    
     
 };
 

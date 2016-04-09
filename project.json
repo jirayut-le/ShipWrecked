@@ -15,11 +15,11 @@
         "src/resource.js",
         "src/GameLayer.js",
         "src/startGame.js",
-        "src/bgAnimation.js",
+        "src/BgAnimation.js",
         "src/startButton.js",
         "src/PlaySceneLayer.js",
-        "src/boat.js",
-        "src/rock.js",
+        "src/Boat.js",
+        "src/Rock.js",
         "src/Seaweed.js",
         "src/Treasure.js",
         "src/FishingNet.js",
@@ -30,6 +30,7 @@
         "src/Life.js",
         "src/PressToStart.js",
         "src/GameOverScene.js",
-        "src/BgGameOver.js"
+        "src/BgGameOver.js",
+        "src/BgEffectRock.js"
     ]
 }
