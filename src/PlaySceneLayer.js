@@ -21,7 +21,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	},
 
 	update : function (){
-		if ( this.Life.lifeRemain == 0){
+		if ( this.Life.lifeRemain == 0 && this.gameOver == false){
 			this.gameOver = true;
 			this.pauseGame();
 			this.showGameOver();
@@ -217,14 +217,6 @@ var PlaySceneLayer = cc.LayerColor.extend({
 			for (var i = 0; i < this.obstacles.length; i++) {
 				this.obstacles[i].start = true;
 			}
-//			this.checkMoveRight = true;
-//			if (this.boat.checkMoveRight == false && this.boat.checkMoveLeft == true) {
-//				this.boat.checkMoveLeft = false;
-//				this.boat.checkMoveRight = true;
-//			} else {
-//				this.boat.checkMoveLeft = true;
-//				this.boat.checkMoveRight = false;
-//			}
 			
 			this.boat.start = true;
 			this.boat.switchMove();
@@ -240,9 +232,6 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	},
 
 	pauseGame : function (){
-//		this.boat.checkMoveLeft = false;
-//		this.boat.checkMoveRight = false;
-		
 		this.boat.start = false;
 		for (var i = 0 ; i < this.obstacles.length ; i++){
 			this.obstacles[i].start = false;
@@ -250,9 +239,10 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	},
 	
 	showGameOver : function (){
+		cc.audioEngine.playEffect('res/effects/boatBomb.wav');
 		setTimeout(function() { 
 			cc.director.runScene( new StartGameOverScene() ); 	
-		}, 1000);
+		}, 1500);
 	}
 
 });

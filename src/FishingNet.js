@@ -33,7 +33,8 @@ var FishingNet = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+176) ) <= 70 ) );
 	},
 	effect : function( obj ){
-		var tempVelocity = this.velocity;
+		cc.audioEngine.playEffect('res/effects/hitFishingNet.wav');
+		var tempVelocity = obj.velocity;
 		this.setPosition( -100 , this.getPosition().y);
 		obj.velocity = 0;
 		setTimeout(function() { 

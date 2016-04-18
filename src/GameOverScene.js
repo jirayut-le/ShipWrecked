@@ -6,8 +6,6 @@ var GameOverScene = cc.LayerColor.extend ({
 		this.bgGameOver.setPosition( new cc.Point( width/2 , height/2));
 		this.buttonRestart();
 		this.buttonHome();
-
-//		this.scoreGameOver = score;
 		this.position = 1123;
 		this.scoreGameOverArray = [];
 		this.createScoreLabel();

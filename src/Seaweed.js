@@ -33,7 +33,8 @@ var Seaweed = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+176) ) <= 90 ) );
 	},
 	effect : function ( obj ){
-		var tempVelocity = this.velocity;
+		cc.audioEngine.playEffect('res/effects/hitSeaweed.mp3');
+		var tempVelocity = obj.velocity;
 		this.setPosition( -100 , this.getPosition().y);
 		obj.velocity = 5;
 		setTimeout(function() { 
