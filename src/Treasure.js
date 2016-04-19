@@ -33,6 +33,7 @@ var Treasure = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+176) ) <= 70 ) );
 	},
 	effect : function (){
+		cc.audioEngine.playEffect('res/effects/collect.wav');
 		this.setPosition( -100 , this.getPosition().y);
 	},
 	upSpeed : function(){

@@ -38,7 +38,8 @@ var res = {
     sound_motor_boat_wav : "res/effects/motorBoat.wav",
     sound_hit_fishing_net_wav : "res/effects/hitFishingNet.wav",
     sound_boat_bomb_wav : "res/effects/boatBomb.wav",
-    sound_hit_seaweed_mp3 : "res/effects/hitSeaweed.mp3"
+    sound_hit_seaweed_mp3 : "res/effects/hitSeaweed.mp3",
+    sound_collect_wav : "res/effects/collect.wav"
     
 //    font_kilogram_otf : "res/fonts/KiloGram.otf"
     
