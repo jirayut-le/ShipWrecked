@@ -25,6 +25,13 @@ var Life = cc.Node.extend({
 	damage : function(){
 		this.lifeRemain -= 1;
 		this.update();
+	},
+
+	lifeUp : function(){
+		if (lifeRemain < 4){
+			this.lifeRemain += 1;
+			this.lifeArray[ this.lifeRemain ].runAction( cc.fadeIn(1));
+		}
 	}
 
 })

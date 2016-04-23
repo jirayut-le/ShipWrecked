@@ -240,9 +240,9 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	
 	showGameOver : function (){
 		cc.audioEngine.playEffect('res/effects/boatBomb.wav');
-		setTimeout(function() { 
-			cc.director.runScene( new StartGameOverScene() ); 	
-		}, 1500);
+//		setTimeout(function() { 
+			cc.director.runScene(cc.TransitionTurnOffTiles.create( 3 , new StartGameOverScene() ));
+//		}, 1500);
 	}
 
 });

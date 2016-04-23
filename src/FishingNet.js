@@ -2,7 +2,7 @@ var FishingNet = cc.Sprite.extend({
 	ctor : function (){
 		this._super();
 		this.initWithFile("res/images/net.png");
-		this.velocity = 5;
+		this.velocity = 7;
 		this.numberPosition;
 		this.start = false;
 	},

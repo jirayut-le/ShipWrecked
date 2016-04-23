@@ -10,18 +10,18 @@ var GameLayer = cc.LayerColor.extend({
 
 		this.createLogoGame();
 		this.createButtonStart();
+		this.createButtonHowToPlay();
 
-		this.gameStart = false;
 		return true;
 	},
-	
+
 	createBgAnimation : function (){
 		this.bgAnimation = new BgAnimation();
 		this.addChild (this.bgAnimation );
 		this.bgAnimation.ctor();
 		this.bgAnimation.setPosition( new cc.Point(1000,750));
 	},
-	
+
 	createLogoGame : function(){
 		this.startGame = new startGame();
 		this.addChild( this.startGame );
@@ -33,21 +33,25 @@ var GameLayer = cc.LayerColor.extend({
 				'res/images/startButton.png',
 				'res/images/startButtonClicked.png',
 				function () {
-					this.startGame.runAction( cc.FadeTo.create(1.5,0));
-					this.playButtonItem.runAction( cc.FadeTo.create(1.5,0));
 					cc.audioEngine.playEffect('res/effects/click.wav');
-					if (this.gameStart == false){
-						setTimeout(function() { 
-							cc.director.runScene( new StartPlayScene() ); 	
-						}, 2000);
-					}
-
-					this.gameStart = true;
+					cc.director.runScene(cc.TransitionPageTurn.create( 2.5 , new StartPlayScene()));
+					this.playButton.setEnabled(false);
 
 				}, this);
+
 		this.playButton = new cc.Menu( this.playButtonItem );
 		this.playButton.setPosition( 1009 , 402.5  );
 		this.addChild( this.playButton );
+	},
+
+	createButtonHowToPlay : function(){
+		this.howToPlayItem = new cc.MenuItemImage('res/images/howtoplaybutton.png','res/images/howtoplaybuttonclick.png',
+				function (){
+			this.howToPlayButton.setEnabled(false);
+		} , this);
+		this.howToPlayButton = new cc.Menu( this.howToPlayItem );
+		this.howToPlayButton.setPosition( 1000 , 100 );
+		this.addChild( this.howToPlayButton );
 	}
 
 });
