@@ -9,9 +9,8 @@ var GameLayer = cc.LayerColor.extend({
 		cc.audioEngine.playMusic( 'res/effects/waterSound.mp3', true );    
 
 		this.createLogoGame();
-		this.createButtonStart();
-		this.createButtonHowToPlay();
-
+		this.createHowToPlayScene();
+	
 		return true;
 	},
 
@@ -47,12 +46,56 @@ var GameLayer = cc.LayerColor.extend({
 	createButtonHowToPlay : function(){
 		this.howToPlayItem = new cc.MenuItemImage('res/images/howtoplaybutton.png','res/images/howtoplaybuttonclick.png',
 				function (){
-			this.howToPlayButton.setEnabled(false);
+			this.enableHowToPlay();
 		} , this);
 		this.howToPlayButton = new cc.Menu( this.howToPlayItem );
 		this.howToPlayButton.setPosition( 1000 , 100 );
 		this.addChild( this.howToPlayButton );
+	},
+	
+	createHowToPlayScene : function(){
+		this.howToPlayScene = new HowToPlayScene();
+		this.howToPlayScene.setPosition( new cc.Point( width/2 , height/2));
+		this.howToPlayScene.setOpacity(0);
+		this.addChild( this.howToPlayScene );
+		this.createButtonStart();
+		this.createButtonHowToPlay();
+		this.createBackButton();
+	},
+	
+	createBackButton : function (){
+		this.backItem = new cc.MenuItemImage('res/images/howtoplaybackbutton.png','res/images/howtoplaybackbuttonclick.png',
+				function(){
+			this.enableGameLayer();
+		} , this);
+		this.backButton = new cc.Menu( this.backItem );
+		this.backButton.setPosition( new cc.Point (1650, 150));
+		this.backButton.setEnabled(false);
+		this.backButton.setOpacity(0);
+		this.addChild( this.backButton );
+	},
+	
+	enableHowToPlay : function(){
+		this.howToPlayButton.setEnabled(false);
+		this.backButton.setEnabled(true);
+		this.howToPlayButton.setOpacity(0);
+		this.playButton.setEnabled(false);
+		this.playButton.setOpacity(0);
+		this.howToPlayScene.setOpacity(255);
+		this.backButton.setOpacity(255);
+		this.howToPlayScene.showBoatHowToPlay();
+	},
+	enableGameLayer : function(){
+		this.howToPlayButton.setEnabled(true);
+		this.howToPlayScene.setOpacity(0);
+		this.backButton.setOpacity(0);
+		this.howToPlayButton.setOpacity(255);
+		this.playButton.setOpacity(255);
+		this.playButton.setEnabled(true);
+		this.backButton.setEnabled(false);
+		this.howToPlayScene.hideBoatHowToPlay();
 	}
+	
 
 });
 

@@ -33,6 +33,9 @@ var res = {
     button_home_click_png : "res/images/gameOverHomeClick.png",
     button_howToPlay_png : "res/images/howtoplaybutton.png",
     button_howToPlay_click_png : "res/images/howtoplaybuttonclick.png",
+    howToPlay_scene_png : "res/images/howtoplayscene.png",
+    button_howToPlayBack_png : "res/images/howtoplaybackbutton.png",
+    button_howToPlayBack_click_png : "res/images/howtoplaybackbuttonclick.png",
     
     sound_water_mp3 : "res/effects/waterSound.mp3",
     sound_hit_rock_wav : "res/effects/hitRock.wav",
