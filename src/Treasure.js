@@ -29,8 +29,8 @@ var Treasure = cc.Sprite.extend({
 	closeTo: function( obj ) {
 		var myPos = this.getPosition();
 		var oPos = obj.getPosition();
-		return ( ( Math.abs( myPos.x - oPos.x ) <= 80 ) &&
-				( Math.abs( myPos.y - (oPos.y+176) ) <= 70 ) );
+		return ( ( Math.abs( myPos.x - oPos.x ) <= 110 ) &&
+				( Math.abs( myPos.y - (oPos.y+95) ) <= 100 ) );
 	},
 	effect : function (){
 		cc.audioEngine.playEffect('res/effects/collect.wav');

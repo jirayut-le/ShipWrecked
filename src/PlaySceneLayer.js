@@ -131,7 +131,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.boat = new Boat();
 		this.addChild(this.boat, 1);
 		this.boat.scheduleUpdate();
-		this.boat.setPosition(new cc.Point(1000, 5));
+		this.boat.setPosition(new cc.Point(1000, 70));
 	},
 
 	createStatusBar : function(){
