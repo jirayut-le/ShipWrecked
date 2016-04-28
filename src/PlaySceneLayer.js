@@ -10,6 +10,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.createBoat();
 		this.createStatusBar();
 		this.createObstacles();
+		this.createPause();
 
 		this.hitSeaweedFirstTime = false;
 		this.hitFishingNetFirstTime = false;
@@ -137,7 +138,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	createStatusBar : function(){
 		this.StatusBar = new StatusBar();
 		this.addChild( this.StatusBar , 2);
-		this.StatusBar.setPosition( new cc.Point ( 1000 , 1408 ));
+		this.StatusBar.setPosition( new cc.Point ( 1000 , 1372.5 ));
 
 		this.Score = new Score();
 		this.addChild( this.Score , 3 );
@@ -147,6 +148,13 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.Life = new Life();
 		this.addChild( this.Life , 3 );
 		this.Life.setPosition( new cc.Point ( 1767.5 , 1423 ));
+	},
+	
+	createPause : function(){
+		this.pause = new Pause();
+		this.pause.setPosition( new cc.Point( width/2 , height/2 ));
+		this.pause.setOpacity(0);
+		this.addChild(this.pause ,1);
 	},
 
 	createObstacles : function() {
@@ -213,6 +221,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 	onKeyDown : function(keyCode, event) {
 		if (keyCode == cc.KEY.space && this.gameOver == false ) {
+			this.pause.setOpacity(0);
 			this.PressToStart.start();
 			for (var i = 0; i < this.obstacles.length; i++) {
 				this.obstacles[i].start = true;
@@ -224,6 +233,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 		if (keyCode == cc.KEY.p) {
 			this.pauseGame();
+			this.pause.setOpacity(255);
 		}
 
 	},

@@ -37,6 +37,7 @@ var res = {
     button_howToPlayBack_png : "res/images/howtoplaybackbutton.png",
     button_howToPlayBack_click_png : "res/images/howtoplaybackbuttonclick.png",
     boat_howToPlay_png : "res/images/boat.png",
+    pause_png : "res/images/pausepic.png",
     
     sound_water_mp3 : "res/effects/waterSound.mp3",
     sound_hit_rock_wav : "res/effects/hitRock.wav",
