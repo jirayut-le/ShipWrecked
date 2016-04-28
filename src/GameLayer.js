@@ -28,9 +28,7 @@ var GameLayer = cc.LayerColor.extend({
 	},
 
 	createButtonStart : function(){
-		this.playButtonItem = new cc.MenuItemImage(
-				'res/images/startButton.png',
-				'res/images/startButtonClicked.png',
+		this.playButtonItem = new cc.MenuItemImage( 'res/images/startButton.png', 'res/images/startButtonClicked.png',
 				function () {
 					cc.audioEngine.playEffect('res/effects/click.wav');
 					cc.director.runScene(cc.TransitionPageTurn.create( 2.5 , new StartPlayScene()));
@@ -95,8 +93,6 @@ var GameLayer = cc.LayerColor.extend({
 		this.backButton.setEnabled(false);
 		this.howToPlayScene.hideBoatHowToPlay();
 	}
-	
-
 });
 
 var StartScene = cc.Scene.extend({

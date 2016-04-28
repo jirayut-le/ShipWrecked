@@ -29,8 +29,8 @@ var Seaweed = cc.Sprite.extend({
 	closeTo: function( obj ) {
 		var myPos = this.getPosition();
 		var oPos = obj.getPosition();
-		return ( ( Math.abs( myPos.x - oPos.x ) <= 55 ) &&
-				( Math.abs( myPos.y - (oPos.y+176) ) <= 90 ) );
+		return ( ( Math.abs( myPos.x - oPos.x ) <= 60 ) &&
+				( Math.abs( myPos.y - (oPos.y+95) ) <= 140 ) );
 	},
 	effect : function ( obj ){
 		cc.audioEngine.playEffect('res/effects/hitSeaweed.mp3');

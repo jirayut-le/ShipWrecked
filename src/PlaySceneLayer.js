@@ -4,7 +4,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this._super(new cc.Color(22, 206, 215, 255));
 		this.setPosition(new cc.Point(0, 0));
 		this.obstacles = [];
-		
+
 		this.createBgAnimation();
 		this.createPressToStart();
 		this.createBoat();
@@ -35,19 +35,19 @@ var PlaySceneLayer = cc.LayerColor.extend({
 				else if ( this.obstacles[i] instanceof Seaweed )
 					this.effectWhenHitSeaweed( this.obstacles[i] );
 
-				else if ( this.obstacles[i] instanceof Treasure){
+				else if ( this.obstacles[i] instanceof FishingNet )
+					this.effectWhenHitFishingNet( this.obstacles[i] );
+				
+				else if ( this.obstacles[i] instanceof Treasure) {
 					this.effectWhenHitTreasure( this.obstacles[i] );
 					this.upSpeed();
 				}
-
-				else if ( this.obstacles[i] instanceof FishingNet )
-					this.effectWhenHitFishingNet( this.obstacles[i] );
 
 			}
 		}
 
 	},
-	
+
 	upSpeed : function (){
 		for (var i = 0 ; i < this.obstacles.length ;i++)
 			this.obstacles[i].upSpeed();
@@ -108,19 +108,19 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.addChild( this.bgEffectSeaweed ); 
 		this.bgEffectSeaweed.setPosition( new cc.Point ( width/2 , height/2 ));
 	},
-	
+
 	createBgEffectRock : function (){
 		this.bgEffectRock = new BgEffectRock();
 		this.addChild( this.bgEffectRock );
-		this.bgEffectRock.setPosition( new cc.Point( width/2 , height/2));
+		this.bgEffectRock.setPosition( new cc.Point( width/2 , height/2 ));
 	},
 
 	createBgAnimation : function(){
 		this.bgAnimation = new BgAnimation();
-		this.addChild(this.bgAnimation);
-		this.bgAnimation.setPosition(new cc.Point(1000, 750));
+		this.addChild( this.bgAnimation );
+		this.bgAnimation.setPosition(new cc.Point( 1000, 750 ));
 	},
-	
+
 	createPressToStart : function (){
 		this.PressToStart = new PressToStart();
 		this.addChild( this.PressToStart , 4 );
@@ -129,19 +129,19 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 	createBoat : function(){
 		this.boat = new Boat();
-		this.addChild(this.boat, 1);
+		this.addChild( this.boat , 1 );
 		this.boat.scheduleUpdate();
-		this.boat.setPosition(new cc.Point(1000, 70));
+		this.boat.setPosition(new cc.Point( 1000 , 70 ));
 	},
 
 	createStatusBar : function(){
 		this.StatusBar = new StatusBar();
 		this.addChild( this.StatusBar , 2);
-		this.StatusBar.setPosition( new cc.Point (1000 , 1408 ));
+		this.StatusBar.setPosition( new cc.Point ( 1000 , 1408 ));
 
 		this.Score = new Score();
 		this.addChild( this.Score , 3 );
-		this.Score.setPosition( new cc.Point ( 1130 , 1420));
+		this.Score.setPosition( new cc.Point ( 1130 , 1420 ));
 		this.Score.scheduleUpdate();
 
 		this.Life = new Life();
@@ -202,11 +202,11 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		var self = this;
 		cc.eventManager.addListener({
 			event : cc.EventListener.KEYBOARD,
-			onKeyPressed : function(keyCode, event) {
-				self.onKeyDown(keyCode, event);
+			onKeyPressed : function( keyCode , event ) {
+				self.onKeyDown( keyCode , event );
 			},
 			onKeyReleased : function(keyCode, event) {
-				self.onKeyUp(keyCode, event);
+				self.onKeyUp( keyCode , event );
 			}
 		}, this);
 	},
@@ -228,8 +228,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 	},
 
-	onKeyUp : function(keyCode, event) {
-	},
+	onKeyUp : function( keyCode , event ) {},
 
 	pauseGame : function (){
 		this.boat.start = false;
@@ -237,12 +236,10 @@ var PlaySceneLayer = cc.LayerColor.extend({
 			this.obstacles[i].start = false;
 		}
 	},
-	
+
 	showGameOver : function (){
-		cc.audioEngine.playEffect('res/effects/boatBomb.wav');
-//		setTimeout(function() { 
-			cc.director.runScene(cc.TransitionTurnOffTiles.create( 3 , new StartGameOverScene() ));
-//		}, 1500);
+		cc.audioEngine.playEffect( 'res/effects/boatBomb.wav' );
+		cc.director.runScene(cc.TransitionTurnOffTiles.create( 2.5 , new StartGameOverScene() ));
 	}
 
 });
@@ -252,7 +249,7 @@ var StartPlayScene = cc.Scene.extend({
 		this._super();
 		var playScene = new PlaySceneLayer();
 		playScene.init();
-		this.addChild(playScene);
+		this.addChild( playScene );
 	}
 });
 

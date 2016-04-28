@@ -30,8 +30,8 @@ var Rock = cc.Sprite.extend({
 	closeTo: function( obj ) {
 		var myPos = this.getPosition();
 		var oPos = obj.getPosition();
-		return ( ( Math.abs( myPos.x - oPos.x ) <= 100 ) &&
-				( Math.abs( myPos.y - (oPos.y+176) ) <= 70 ) );
+		return ( ( Math.abs( myPos.x - oPos.x ) <= 110 ) &&
+				( Math.abs( myPos.y - (oPos.y+95) ) <= 110 ) );
 	},
 	
 	effect : function(){
