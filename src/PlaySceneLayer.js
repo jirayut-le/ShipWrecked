@@ -9,7 +9,10 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.createPressToStart();
 		this.createBoat();
 		this.createStatusBar();
-		this.createObstacles();
+		this.Obstacle = new Obstacle();
+		
+		this.addChild( this.Obstacle  );
+//		this.createObstacles();
 		this.createPause();
 
 		this.hitSeaweedFirstTime = false;
@@ -22,30 +25,31 @@ var PlaySceneLayer = cc.LayerColor.extend({
 	},
 
 	update : function (){
-		if ( this.Life.lifeRemain == 0 && this.gameOver == false){
+		if ( life == 0 && this.gameOver == false){
 			this.gameOver = true;
 			this.pauseGame();
 			this.showGameOver();
 		}
-		for (var i = 0 ; i < this.obstacles.length && this.gameOver == false ; i++){
-			if ( this.obstacles[i].closeTo( this.boat )){
+		this.Obstacle.closeTo( this.boat  );
+//		for (var i = 0 ; i < this.obstacles.length && this.gameOver == false ; i++){
+//		if ( this.obstacles[i].closeTo( this.boat )){
 
-				if (this.obstacles[i] instanceof Rock )
-					this.effectWhenHitRock( this.obstacles[i] );
+//		if (this.obstacles[i] instanceof Rock )
+//		this.effectWhenHitRock( this.obstacles[i] );
 
-				else if ( this.obstacles[i] instanceof Seaweed )
-					this.effectWhenHitSeaweed( this.obstacles[i] );
+//		else if ( this.obstacles[i] instanceof Seaweed )
+//		this.effectWhenHitSeaweed( this.obstacles[i] );
 
-				else if ( this.obstacles[i] instanceof FishingNet )
-					this.effectWhenHitFishingNet( this.obstacles[i] );
-				
-				else if ( this.obstacles[i] instanceof Treasure) {
-					this.effectWhenHitTreasure( this.obstacles[i] );
-					this.upSpeed();
-				}
+//		else if ( this.obstacles[i] instanceof FishingNet )
+//		this.effectWhenHitFishingNet( this.obstacles[i] );
 
-			}
-		}
+//		else if ( this.obstacles[i] instanceof Treasure) {
+//		this.effectWhenHitTreasure( this.obstacles[i] );
+//		this.upSpeed();
+//		}
+
+//		}
+//		}
 
 	},
 
@@ -149,12 +153,12 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.addChild( this.Life , 3 );
 		this.Life.setPosition( new cc.Point ( 1767.5 , 1423 ));
 	},
-	
+
 	createPause : function(){
-		this.pause = new Pause();
-		this.pause.setPosition( new cc.Point( width/2 , height/2 ));
-		this.pause.setOpacity(0);
-		this.addChild(this.pause ,1);
+		this.pausePic = new Pause();
+		this.pausePic.setPosition( new cc.Point( width/2 , height/2 ));
+		this.pausePic.setOpacity(0);
+		this.addChild(this.pausePic ,1);
 	},
 
 	createObstacles : function() {
@@ -221,19 +225,17 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 	onKeyDown : function(keyCode, event) {
 		if (keyCode == cc.KEY.space && this.gameOver == false ) {
-			this.pause.setOpacity(0);
+			this.Obstacle.scheduleUpdate();
+			this.pausePic.setOpacity(0);
 			this.PressToStart.start();
-			for (var i = 0; i < this.obstacles.length; i++) {
-				this.obstacles[i].start = true;
-			}
-			
+
 			this.boat.start = true;
 			this.boat.switchMove();
 		}
 
 		if (keyCode == cc.KEY.p) {
 			this.pauseGame();
-			this.pause.setOpacity(255);
+			this.pausePic.setOpacity(255);
 		}
 
 	},
@@ -242,9 +244,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 	pauseGame : function (){
 		this.boat.start = false;
-		for (var i = 0 ; i < this.obstacles.length ; i++){
-			this.obstacles[i].start = false;
-		}
+		this.Obstacle.unscheduleUpdate();
 	},
 
 	showGameOver : function (){
@@ -264,3 +264,5 @@ var StartPlayScene = cc.Scene.extend({
 });
 
 var score = 0 ;
+var life = 4;
+var speed = 7;

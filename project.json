@@ -33,6 +33,7 @@
         "src/BgGameOver.js",
         "src/BgEffectRock.js",
         "src/HowToPlayScene.js",
-        "src/Pause.js"
+        "src/Pause.js",
+        "src/Obstacle.js"
     ]
 }

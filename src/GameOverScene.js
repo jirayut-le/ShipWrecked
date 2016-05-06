@@ -9,6 +9,13 @@ var GameOverScene = cc.LayerColor.extend ({
 		this.position = 1123;
 		this.scoreGameOverArray = [];
 		this.createScoreLabel();
+		this.reDataGame();
+	},
+	
+	reDataGame : function(){
+		speed = 7;
+		score = 0;
+		life = 4;
 	},
 
 	createScoreLabel : function (){
@@ -38,8 +45,7 @@ var GameOverScene = cc.LayerColor.extend ({
 				function () {
 					cc.audioEngine.playEffect('res/effects/click.wav');
 					cc.director.runScene( cc.TransitionRotoZoom.create ( 1.5 , new StartPlayScene() ) ); 	
-//					cc.TransitionR
-					score = 0;
+//					score = 0;
 				}, this);
 		this.restartButton = new cc.Menu( this.restartButtonItem );
 		this.restartButton.setPosition( 1331 , 378.5  );
@@ -53,7 +59,7 @@ var GameOverScene = cc.LayerColor.extend ({
 				function () {
 					cc.audioEngine.playEffect('res/effects/click.wav');
 					cc.director.runScene( new StartScene() ); 	
-					score = 0;
+//					score = 0;
 				}, this);
 		this.homeButton = new cc.Menu( this.homeButtonItem );
 		this.homeButton.setPosition( 700 , 378.5  );

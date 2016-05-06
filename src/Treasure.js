@@ -4,6 +4,7 @@ var Treasure = cc.Sprite.extend({
 		this.initWithFile("res/images/treasure.png");
 		this.velocity = 7;
 		this.numberPosition;
+		this.XPosition;
 		this.start = false;
 	},
 	
@@ -16,15 +17,15 @@ var Treasure = cc.Sprite.extend({
 		return Math.floor(Math.random()*7)+1;
 	},
 	
-	randomPosition : function(){
-		this.setPosition(new cc.Point( this.randomNumberOfPositionX() * 250 , 2000 + this.numberPosition*250));
+	setPositionObstacle : function(){
+		this.setPosition(new cc.Point( this.XPosition * 250 , 2000 + this.numberPosition*250));
 	},
 	
 	moveDown : function(){
 		var pos = this.getPosition();
 		this.setPosition( new cc.Point( pos.x , pos.y - this.velocity));
 		if( pos.y <= -10 )
-			this.setPosition( this.randomNumberOfPositionX() * 250 , 5000 );
+			this.setPosition( this.XPosition * 250 , 5000 );
 	},
 	closeTo: function( obj ) {
 		var myPos = this.getPosition();
@@ -33,6 +34,8 @@ var Treasure = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+95) ) <= 100 ) );
 	},
 	effect : function (){
+		score += 1;
+		speed += 0.5;
 		cc.audioEngine.playEffect('res/effects/collect.wav');
 		this.setPosition( -100 , this.getPosition().y);
 	},

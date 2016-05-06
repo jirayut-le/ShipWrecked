@@ -1,16 +1,17 @@
 var Life = cc.Node.extend({
 	ctor : function (){
 		this._super();
-		this.lifeRemain = 4 ;
+//		this.lifeRemain = 4 ;
 		this.position = -127.5;
 		this.lifeArray = [];
+		this.scheduleUpdate();
 		for ( var i = 0 ; i < 4 ; i++) 
 			this.createLife();
 	},
 
 	update : function (){
-		if ( this.lifeRemain < 4)
-			this.lifeArray[ this.lifeRemain ].runAction( cc.FadeTo.create(1,0));
+		if ( life < 4)
+			this.lifeArray[ life ].setOpacity(0);
 	},
 
 	createLife : function(){
@@ -23,14 +24,14 @@ var Life = cc.Node.extend({
 	},
 
 	damage : function(){
-		this.lifeRemain -= 1;
+//		this.lifeRemain -= 1;
 		this.update();
 	},
 
 	lifeUp : function(){
-		if (lifeRemain < 4){
-			this.lifeRemain += 1;
-			this.lifeArray[ this.lifeRemain ].runAction( cc.fadeIn(1));
+		if ( life < 4){
+			life += 1;
+			this.lifeArray[ life ].runAction( cc.fadeIn(1));
 		}
 	}
 

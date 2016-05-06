@@ -14,7 +14,6 @@ var res = {
     BgPlay2_png : "res/images/BgPlay2.png",
     BgPlay3_png : "res/images/BgPlay3.png",
     startButton_png : "res/images/startButton.png",
-    boat_1_png : "res/images/boat_1.png",
     rock_png : "res/images/rock.png",
     seaweed_png : "res/images/seaweed.png",
     treasure_png : "res/images/treasure.png",

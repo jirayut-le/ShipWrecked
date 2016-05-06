@@ -1,7 +1,7 @@
 var Score = cc.Node.extend({
 	ctor : function(){
 		this._super();
-		this.score = 0 ;
+//		this.score = 0 ;
 		this.position = -90;
 		this.digitArray = [];
 		for (var i = 0 ; i < 4 ; i++)
@@ -12,9 +12,9 @@ var Score = cc.Node.extend({
 		
 		for (var i = 0 ; i < this.digitArray.length ; i++){
 			if ( i < 3)
-				this.digitArray[i].initWithFile( scoreNumber[ parseInt( this.score/(Math.pow(10,4-1-i)) ) ]);
+				this.digitArray[i].initWithFile( scoreNumber[ parseInt( score/(Math.pow(10,4-1-i)) ) ]);
 			else 
-				this.digitArray[i].initWithFile( scoreNumber[ this.score%10 ] ); 
+				this.digitArray[i].initWithFile( scoreNumber[ score%10 ] ); 
 		}
 
 	},
