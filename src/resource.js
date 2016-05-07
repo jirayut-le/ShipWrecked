@@ -47,9 +47,6 @@ var res = {
     sound_hit_seaweed_mp3 : "res/effects/hitSeaweed.mp3",
     sound_collect_wav : "res/effects/collect.wav"
     
-//    font_kilogram_otf : "res/fonts/KiloGram.otf"
-    
-    
 };
 
 var g_resources = [];

@@ -22,9 +22,9 @@ var GameLayer = cc.LayerColor.extend({
 	},
 
 	createLogoGame : function(){
-		this.startGame = new startGame();
-		this.addChild( this.startGame );
-		this.startGame.setPosition( new cc.Point(1000,750));
+		this.logoGame = new LogoGame();
+		this.addChild( this.logoGame );
+		this.logoGame.setPosition( new cc.Point(1000,750));
 	},
 
 	createButtonStart : function(){

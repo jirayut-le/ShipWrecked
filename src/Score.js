@@ -1,7 +1,6 @@
 var Score = cc.Node.extend({
 	ctor : function(){
 		this._super();
-//		this.score = 0 ;
 		this.position = -90;
 		this.digitArray = [];
 		for (var i = 0 ; i < 4 ; i++)

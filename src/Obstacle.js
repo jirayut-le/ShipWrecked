@@ -13,7 +13,6 @@ var Obstacle = cc.Sprite.extend({
 	},
 
 	createRandomObstacle : function(){
-
 		for( var i = 0 ; i < 20 ; i++){
 			this.plus = 1;
 			this.multiple = 3;
@@ -64,7 +63,6 @@ var Obstacle = cc.Sprite.extend({
 				if (this.allObstacle[i][j].closeTo( obj )){
 					if ( this.allObstacle[i][j] instanceof Rock){
 						this.allObstacle[i][j].effect();
-//						this.bgEffectRock.fade();
 					} else 
 						this.allObstacle[i][j].effect( obj );
 
@@ -111,6 +109,4 @@ var Obstacle = cc.Sprite.extend({
 		this.addChild( this.bgEffectSeaweed ); 
 		this.bgEffectSeaweed.setPosition( new cc.Point ( width/2 , height/2 ));
 	}
-
-
 });

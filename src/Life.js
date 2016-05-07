@@ -1,7 +1,6 @@
 var Life = cc.Node.extend({
 	ctor : function (){
 		this._super();
-//		this.lifeRemain = 4 ;
 		this.position = -127.5;
 		this.lifeArray = [];
 		this.scheduleUpdate();
@@ -24,7 +23,7 @@ var Life = cc.Node.extend({
 	},
 
 	damage : function(){
-//		this.lifeRemain -= 1;
+		life -= 1;
 		this.update();
 	},
 
@@ -35,4 +34,4 @@ var Life = cc.Node.extend({
 		}
 	}
 
-})
+});

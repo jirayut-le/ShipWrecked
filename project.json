@@ -14,9 +14,8 @@
     "jsList" : [
         "src/resource.js",
         "src/GameLayer.js",
-        "src/startGame.js",
+        "src/LogoGame.js",
         "src/BgAnimation.js",
-        "src/startButton.js",
         "src/PlaySceneLayer.js",
         "src/Boat.js",
         "src/Rock.js",

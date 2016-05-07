@@ -2,14 +2,17 @@ var HowToPlayScene = cc.Sprite.extend({
 	ctor : function(){
 		this._super();
 		this.initWithFile('res/images/howtoplayscene.png');
+		this.createHowToPlayBoat();
+		this.addKeyboardHandlers();
+	},
+	
+	createHowToPlayBoat : function(){
 		this.boatHowToPlay = new Boat();
-//		this.boatHowToPlay.initWithFile( 'res/images/boat_howtoplay.png');
 		this.boatHowToPlay.setPosition( new cc.Point(1000,500));
 		this.boatHowToPlay.start = true;
 		this.boatHowToPlay.setOpacity(0);
 		this.boatHowToPlay.scheduleUpdate();
 		this.addChild( this.boatHowToPlay );
-		this.addKeyboardHandlers();
 	},
 	
 	addKeyboardHandlers : function(){
