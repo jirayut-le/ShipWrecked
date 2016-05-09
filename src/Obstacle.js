@@ -48,6 +48,11 @@ var Obstacle = cc.Sprite.extend({
 			this.multiple = 3;
 			for (var j = 0 ; j < 2 ; j++){
 				if ( this.allObstacle[i][j].getPosition().y <= -10){
+					this.removeChild( this.allObstacle[i][j] );
+					this.numberRandomObstacle = Math.floor(Math.random()*10)+1;
+					this.newObstacle = this.createObstacle( this.numberRandomObstacle ) ;
+					this.allObstacle[i][j] = this.newObstacle;
+					this.addChild( this.newObstacle );
 					this.randomXPosition = Math.floor(Math.random()*this.multiple)+this.plus;
 					this.allObstacle[i][j].setPosition( this.randomXPosition* 250 , 5000 );
 					this.plus += 3;
