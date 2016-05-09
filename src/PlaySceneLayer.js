@@ -128,3 +128,4 @@ var StartPlayScene = cc.Scene.extend({
 var score = 0 ;
 var life = 4;
 var speed = 7;
+var speedBoat = 10;

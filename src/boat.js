@@ -2,7 +2,7 @@ var Boat = cc.Sprite.extend({
 	ctor : function(){
 		this._super();
 		this.initWithFile("res/images/boat.png");
-		this.velocity = 10;
+		this.velocity = speedBoat;
 		this.degree = 0;
 		this.start = false;
 		this.move = 1;

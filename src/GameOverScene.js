@@ -13,6 +13,7 @@ var GameOverScene = cc.LayerColor.extend ({
 	},
 	
 	reDataGame : function(){
+		speedBoat = 10;
 		speed = 7;
 		score = 0;
 		life = 4;

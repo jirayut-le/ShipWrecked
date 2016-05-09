@@ -12,11 +12,13 @@ var FishingNet = cc.Sprite.extend({
 	},
 	effect : function( obj ){
 		cc.audioEngine.playEffect('res/effects/hitFishingNet.wav');
-		var tempVelocity = obj.velocity;
+//		var tempVelocity = obj.velocity;
 		this.setPosition( -100 , this.getPosition().y);
+		
+		obj.velocity = speedBoat;
 		obj.velocity = 0;
 		setTimeout(function() { 
-			obj.velocity = tempVelocity;
+			obj.velocity = speedBoat;
 		}, 2000);
 	}
 });

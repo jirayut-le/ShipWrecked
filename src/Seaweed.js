@@ -12,12 +12,14 @@ var Seaweed = cc.Sprite.extend({
 				( Math.abs( myPos.y - (oPos.y+95) ) <= 140 ) );
 	},
 	effect : function ( obj ){
-		cc.audioEngine.playEffect('res/effects/hitSeaweed.mp3');
-		var tempVelocity = obj.velocity;
 		this.setPosition( -100 , this.getPosition().y);
+		cc.audioEngine.playEffect('res/effects/hitSeaweed.mp3');
+		
+		obj.velocity = speedBoat;
+//		var tempVelocity = obj.velocity;
 		obj.velocity = 5;
 		setTimeout(function() { 
-			obj.velocity = tempVelocity;
+			obj.velocity = speedBoat;
 		}, 2000);
 	}
 });

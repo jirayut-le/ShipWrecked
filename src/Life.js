@@ -2,6 +2,8 @@ var Life = cc.Node.extend({
 	ctor : function (){
 		this._super();
 		this.position = -127.5;
+		this.lifeUp = false;
+		this.limit = 10;
 		this.lifeArray = [];
 		this.scheduleUpdate();
 		for ( var i = 0 ; i < 4 ; i++) 
@@ -11,6 +13,10 @@ var Life = cc.Node.extend({
 	update : function (){
 		if ( life < 4)
 			this.lifeArray[ life ].setOpacity(0);
+		if ( score >= this.limit ){
+			this.limit += 10;
+			this.lifePlus();
+		}
 	},
 
 	createLife : function(){
@@ -26,12 +32,12 @@ var Life = cc.Node.extend({
 		life -= 1;
 		this.update();
 	},
-
-	lifeUp : function(){
-		if ( life < 4){
+	
+	lifePlus : function(){
+		console.log("lifeup");
+		if ( life <= 4 ){
+			this.lifeArray[ life ].setOpacity(255);
 			life += 1;
-			this.lifeArray[ life ].runAction( cc.fadeIn(1));
 		}
 	}
-
 });
