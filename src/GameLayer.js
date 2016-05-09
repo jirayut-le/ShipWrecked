@@ -42,7 +42,7 @@ var GameLayer = cc.LayerColor.extend({
 	},
 
 	createButtonHowToPlay : function(){
-		this.howToPlayItem = new cc.MenuItemImage('res/images/howtoplaybutton.png','res/images/howtoplaybuttonclick.png',
+		this.howToPlayItem = new cc.MenuItemImage('res/images/instructionbutton.png','res/images/instructionbuttonclick.png',
 				function (){
 			cc.audioEngine.playEffect('res/effects/click.wav');
 			this.enableHowToPlay();
@@ -63,7 +63,7 @@ var GameLayer = cc.LayerColor.extend({
 	},
 	
 	createBackButton : function (){
-		this.backItem = new cc.MenuItemImage('res/images/howtoplaybackbutton.png','res/images/howtoplaybackbuttonclick.png',
+		this.backItem = new cc.MenuItemImage('res/images/instructionbackbutton.png','res/images/instructionbackbuttonclick.png',
 				function(){
 			this.enableGameLayer();
 			cc.audioEngine.playEffect('res/effects/click.wav');

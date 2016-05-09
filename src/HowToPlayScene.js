@@ -1,7 +1,7 @@
 var HowToPlayScene = cc.Sprite.extend({
 	ctor : function(){
 		this._super();
-		this.initWithFile('res/images/howtoplayscene.png');
+		this.initWithFile('res/images/instructionscene.png');
 		this.createHowToPlayBoat();
 		this.addKeyboardHandlers();
 	},

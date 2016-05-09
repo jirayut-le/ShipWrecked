@@ -28,18 +28,9 @@ var Life = cc.Node.extend({
 		this.lifeArray.push( this.life );
 		this.position += 85;
 	},
-
-	damage : function(){
-		life -= 1;
-		this.update();
-	},
-
+	
 	lifePlus : function(){
-//		console.log("lifeup");
-//		if ( life <= 4 ){
 		life += 1;
 		this.lifeArray[ life - 1 ].setOpacity(255);
-//		life += 1;
-//		}
 	}
 });
