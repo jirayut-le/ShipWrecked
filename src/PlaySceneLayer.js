@@ -13,10 +13,6 @@ var PlaySceneLayer = cc.LayerColor.extend({
 		this.addChild( this.Obstacle  );
 	
 		this.createPause();
-
-		this.hitSeaweedFirstTime = false;
-		this.hitFishingNetFirstTime = false;
-		this.hitRockFirstTime = false;
 		this.gameOver = false ;
 
 		this.addKeyboardHandlers();

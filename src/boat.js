@@ -9,7 +9,6 @@ var Boat = cc.Sprite.extend({
 	},
 
 	update : function(){
-
 		if ( this.start ){
 			if ( this.move == 1){
 				this.moveRight();
