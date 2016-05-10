@@ -111,7 +111,7 @@ var PlaySceneLayer = cc.LayerColor.extend({
 
 	showGameOver : function (){
 		cc.audioEngine.playEffect( 'res/effects/boatBomb.wav' );
-		cc.director.runScene(cc.TransitionTurnOffTiles.create( 2.5 , new StartGameOverScene() ));
+		cc.director.runScene(cc.TransitionTurnOffTiles.create( 2 , new StartGameOverScene() ));
 	}
 
 });

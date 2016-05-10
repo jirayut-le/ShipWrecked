@@ -6,6 +6,7 @@ var Life = cc.Node.extend({
 		this.limit = 10;
 		this.lifeArray = [];
 		this.scheduleUpdate();
+		this.createEffectLifeUp();
 		for ( var i = 0 ; i < 4 ; i++) 
 			this.createLife();
 	},
@@ -15,8 +16,10 @@ var Life = cc.Node.extend({
 			this.lifeArray[ life ].setOpacity(0);
 		if ( score >= this.limit){
 			this.limit += 10;
-			if ( life < 4 )
+			if ( life < 4 ){
 				this.lifePlus();
+				this.effectLifeUp.fade();
+			}
 		}
 	},
 
@@ -32,5 +35,11 @@ var Life = cc.Node.extend({
 	lifePlus : function(){
 		life += 1;
 		this.lifeArray[ life - 1 ].setOpacity(255);
+	},
+	
+	createEffectLifeUp : function(){
+		this.effectLifeUp = new EffectLifeUp();
+		this.effectLifeUp.setPosition( new cc.Point ( -800 , -750 ));
+		this.addChild( this.effectLifeUp );
 	}
 });

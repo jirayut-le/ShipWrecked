@@ -33,6 +33,7 @@
         "src/BgEffectRock.js",
         "src/HowToPlayScene.js",
         "src/Pause.js",
-        "src/Obstacle.js"
+        "src/Obstacle.js",
+        "src/EffectLifeUp.js"
     ]
 }
